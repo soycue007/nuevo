@@ -1,0 +1,111 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.header{
+	margin: 0px;
+	width: 100%;
+    height: 100px; 
+    background-color: rgb(40,40,40);
+    margin-bottom: 10px;
+    border-bottom: solid;
+    border-color: #fff;
+}
+ .header ul li{
+ 	
+	 list-style:none;
+}
+ .header ul a li img{
+ 	margin-top: 10px;
+	
+}
+.cerrar{
+	padding: 10px;
+	color: #fff;
+	font-size: 20px;
+	text-decoration: none;
+
+}
+/***********************************************************************************/
+table{
+	padding-top: 50px;
+}
+#tabla{
+
+  font-family: Agenda-Light, sans-serif;
+ 
+}
+th, td{
+	text-align: center;
+	border: #C3C0C0 solid 2px;
+	border-radius: 8px;
+}
+thead th 
+{
+
+  font-weight: 600;
+	background-color: #C6EAEB;
+ }
+.ml120{
+	margin-left: 160px;
+}
+table #tabla thead th, table #tabla tbody td { 
+	padding: .8rem;
+    font-size: 1.1rem;
+  }
+
+.mt15{
+ 	margin-top: 15px;
+}
+
+.panelLateral{
+	position: absolute;
+	background-color: red;
+	height: 80%;
+	width: 100px;
+	margin-left: 1px;
+}
+/*------estilos de tabla productos en administrador
+
+//pasar estilos de imagen a aca y agregar hover*/
+
+
+.buscador{
+	border:3px solid rgb(198, 168, 125);
+	transition: all .1s;
+}
+
+.buscador:hover{
+	width:300px;
+	border-color:rgb(133, 114, 87);
+}
+
+
+.whatsapp{
+	color:rgb(4, 168, 4);
+}
+
+.whatsapp:hover{
+	color: green;
+}
+
+.carritologo{
+	color: rgb(198,168,125);
+}
+.carritologo:hover{
+	color: rgba(198, 167, 125, 0.747);
+}
+
+.dropdown-item:hover{
+	background-color:rgb(95, 95, 95)
+}
+
+/*/////////////fondo arriba index ////////////////////////////*/
+.fondo1{
+	width: 100%;
+	height: 400px;
+}
+
+
+
