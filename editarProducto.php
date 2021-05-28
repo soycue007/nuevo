@@ -7,7 +7,7 @@ if(isset($_POST['actualizarBtn']))
 {
 	$id= $_POST['update_id'];
 	$categoria= $_POST['categoria'];
-	$nombre= $_POST['nombre'];
+	$nombre= strtoupper($_POST['nombre']);
 	$descripcion= $_POST['descripcion'];
 	$precio= $_POST['precio2'];
 	$cantidad= $_POST['cantidad'];

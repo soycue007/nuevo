@@ -56,7 +56,8 @@
 
 
 
-
+    <?php include ('includes/buscador.php');?>
+    <?php autocompletado(); ?>
 </body>
 
 </html>

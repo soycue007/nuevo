@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
   <link rel="stylesheet" type="text/css" href="css/estilos.css"/>
     <link rel="stylesheet" type="text/css" href="css/galeria.css">
+    <link rel="stylesheet" href="css/buscador.css">
   <!-- jquery -->
   <script src="jquery/jquery-3.5.1.js"></script>
  
@@ -19,5 +20,6 @@
 
   <!-- datatables js -->
   <script type="text/javascript" src="datatables/datatables.min.js"></script>
-  <!-- funciones JS -->
-  <script src="js/funciones.js"></script>
+
+
+

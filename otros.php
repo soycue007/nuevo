@@ -58,7 +58,9 @@ $pulseras = mysqli_query($conexion,$consulta);
 
 
 ?>
-</div>    
+</div>  
+<?php include ('includes/buscador.php');?>
+    <?php autocompletado(); ?>  
 </body>
 
 </html>

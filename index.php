@@ -4,21 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include ('includes/conexion.php'); ?>
-    <?php include ('includes/bootstrap.php');?>
+    <?php include ('includes/conexion.php'); ?> 
     <?php include ('includes/navbar.php'); ?>
     <?php include ('includes/novedades.php'); ?>
     <?php include ('includes/ofertas.php'); ?>
     <?php include ('includes/otrosProductos.php'); ?>
     <?php include ('includes/masVendidos.php'); ?>
+    <?php include ('includes/masBuscados.php'); ?>
+    <?php include ('includes/bootstrap.php');?>
     <title>Joyeria D'ambrosio</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" href="includes/Glider.js-master/glider.min.css">
     <link rel="stylesheet" href="css/carruselesIndex.css">
     <link rel="stylesheet" href="css/estilos.css">
+
 </head>
 
 <body style="background-color: rgb(50,50,50)">
+
     <header>
         <?php navBar(); ?>
         <div id="carouselHeader" class="carousel slide" data-bs-ride="carousel" >
@@ -41,6 +44,10 @@
     <?php cargarMasVendidos(); ?>
     <hr class="solid" style="border-top: 2px solid #bbb;">
     <br>
+    <h3 style="text-align:center;color: rgb(198, 168, 125);font-family:Verdana, sans-serif;">LO MAS BUSCADO</h3><br>
+    <?php cargarMasBuscados(); ?>
+    <hr class="solid" style="border-top: 2px solid #bbb;">
+    <br>
     <h3 style="text-align:center;color: rgb(198, 168, 125);font-family:Verdana, sans-serif;">LO NUEVO</h3><br>
     <?php cargarNovedades(); ?>
     <hr class="solid" style="border-top: 2px solid #bbb;">
@@ -49,7 +56,7 @@
     <?php 
       $qy_productos = "SELECT * FROM productos WHERE enOferta>0";
       $productos = mysqli_query($conexion, $qy_productos);
-      if(mysqli_num_rows($productos)>=9){
+      if(mysqli_num_rows($productos)>=12){
         echo '<h3 style="text-align:center;color: rgb(198, 168, 125);font-family:Verdana, sans-serif;">OFERTAS</h3><br>';
         cargarOfertas();
       }
@@ -100,6 +107,8 @@
     <script src="includes/Glider.js-master/glider.min.js"></script>
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <script src="js/carruselesIndex.js"></script>
+    <?php include ('includes/buscador.php');?>
+    <?php autocompletado(); ?>
 </body>
 
 </html>

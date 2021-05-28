@@ -194,3 +194,61 @@
 .carousel__indicadores3 .glider-dot.active{
 	opacity:1;
 }
+
+
+
+
+.carousel__anterior4,
+.carousel__siguiente4{
+	position:absolute;
+	display:block;
+	width:30px;
+	height:30px;
+	border:none;
+	
+	cursor:pointer;
+	line-height: 30px;
+	text-align: center;
+	background:none;
+	color: #fff;
+	opacity:40%;
+}
+
+.carousel__anterior4:hover,
+.carousel__siguiente4:hover{
+	opacity:100%;
+}
+
+.carousel__anterior4{
+	left:-40px;
+	top: 35%;
+	
+}
+
+.carousel__siguiente4{
+	right:-40px;
+	top: 35%;
+}
+
+.carousel__lista4{
+    overflow:hidden;
+	
+}
+
+
+
+.carousel__indicadores4 .glider-dot{
+	display:block;
+	width:30px;
+	height:4px;
+	background: #fff;
+	opacity:.2;
+	border-radius:0;
+}
+
+.carousel__indicadores4 .glider-dot:hover{
+	opacity:.5;
+}
+.carousel__indicadores4 .glider-dot.active{
+	opacity:1;
+}

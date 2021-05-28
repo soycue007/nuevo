@@ -1,8 +1,8 @@
 <?php
-    function cargarMasVendidos(){
+    function cargarMasBuscados(){
         include ('conexion.php');
-        $qy_productos = "SELECT * FROM productos ORDER BY vecesVendido DESC LIMIT 12";
-        $productos = mysqli_query($conexion, $qy_productos);     
+        $qy_productos = "SELECT * FROM productos ORDER BY vecesBuscado DESC LIMIT 12 ";
+        $productos = mysqli_query($conexion, $qy_productos);  
         ?>
 <div class="container">
     <div class="row">
@@ -11,13 +11,13 @@
 
             <div class="carousel">
                 <div class="carousel__contenedor">
-                    <button aria-label="Anterior" class="carousel__anterior3">
+                    <button aria-label="Anterior" class="carousel__anterior4">
                         <i class="fas fa-chevron-left"></i>
                     </button>
-                    <div class="carousel__lista3">
-                        <?php
-                          while ($aux = mysqli_fetch_array($productos)){                                                                                          
-                    ?>
+                    <div class="carousel__lista4">
+                        <?php               
+                        while ($aux = mysqli_fetch_array($productos)){                    
+                        ?>
                         <div class="carousel__elemento">
                         <?php
                             if($aux['enOferta']>0){
@@ -32,10 +32,9 @@
                                 <?php
                             }
                         ?>
-                            <a href="productoDetalle.php?nombre=<?php echo $aux['nombre'];?>"><img
-                                    class="carousel__imagen"
+                            <a href="productoDetalle.php?nombre=<?php echo $aux['nombre'];?>"><img class="carousel__imagen"
                                     src="data:image/jpg;base64,<?php echo base64_encode($aux['foto']); ?>"></a>
-                            <?php
+                                    <?php
                                 if($aux['enOferta']>0){
                                     ?>
                                     <h6 style="color: rgb(198, 168, 125)"><s>Precio:
@@ -52,17 +51,16 @@
                                 }
                             
                             ?>
-                            
                         </div>
                         <?php
-                     } ?>
+                    }?>
                     </div>
-                    <button aria-label="Siguiente" class="carousel__siguiente3">
+                    <button aria-label="Siguiente" class="carousel__siguiente4">
                         <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
                 <br>
-                <div role="tablist" class="carousel__indicadores3"></div>
+                <div role="tablist" class="carousel__indicadores4"></div>
             </div>
         </div>
         <div class="col-1"></div>

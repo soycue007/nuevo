@@ -1,20 +1,25 @@
 <?php
-require_once ('includes/conexion.php');
+if(isset($_GET['nombre'])){
+    require_once ('includes/conexion.php');
 $img='';
 $precio = 0;
 $precioFinal = 0;
 $descripcion = '';
 $nombre = $_GET['nombre'];
 $cantidad = 0;
+$categoria ='';
 $oferta=0;
-
+$buscado = 0;
 $qy_productos = "SELECT * FROM productos";
 $productos = mysqli_query($conexion, $qy_productos);
 while($aux = mysqli_fetch_array($productos)){
     if($nombre == $aux['nombre']){
+        $categoria = $aux['categoria'];
         $img = $aux['foto'];
         $cantidad = $aux['cantidad'];
         $descripcion = $aux['descripcion'];
+        $buscado = $aux['vecesBuscado'];
+        $buscado++;
         if ($aux['enOferta']>0){
             $oferta = $aux['enOferta'];
             $precioFinal = $aux['precio'] - ($aux['precio']*$oferta)/100;
@@ -26,7 +31,8 @@ while($aux = mysqli_fetch_array($productos)){
     }
 }
 
-
+$sumarVisita = "UPDATE productos SET vecesBuscado=$buscado WHERE nombre='$nombre' and descripcion='$descripcion'";
+$resultado= mysqli_query($conexion,$sumarVisita);
 
 
 ?>
@@ -44,7 +50,11 @@ while($aux = mysqli_fetch_array($productos)){
     <script type="text/javascript" src="JS/bootstrap.bundle.js"> </script>
     <!--CSS-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <?php include ('INCLUDES/navbar.php'); ?>
+    <link href="css/carruselRelacionados.css" rel="stylesheet">
+    <link rel="stylesheet" href="includes/Glider.js-master/glider.min.css">
+    <?php include ('includes/navbar.php'); ?>
+    <?php include ('includes/bootstrap.php'); ?>
+    <?php include ('includes/carruselRelacionados.php'); ?>
     <title>Producto</title>
 </head>
 
@@ -56,8 +66,8 @@ while($aux = mysqli_fetch_array($productos)){
             <div class="col-7">
                 <div class="card" style="width: 18rem; height:18rem;margin-left:230px">
 
-                    <img src="data:image/jpg;base64,<?php echo base64_encode($img); ?>" class="card-img-top"
-                        height="286rem" width="18rem">
+                    <img src="data:image/jpg;base64,<?php echo base64_encode($img); ?>"
+                        height="286rem" width="286rem">
                 </div>
             </div>
             <div class="col-5">
@@ -97,7 +107,21 @@ while($aux = mysqli_fetch_array($productos)){
     </div>
     <br><br><br>
     <hr class="solid" style="border-top: 2px solid #bbb;">
-
+    <br>
+    <h4 style="text-align:center;color: rgb(198, 168, 125);font-family:Verdana, sans-serif;">PRODUCTOS RELACIONADOS</h4><br>
+    <br>
+    <?php cargarRelacionados($categoria); ?>
+    <script src="includes/Glider.js-master/glider.min.js"></script>
+    <script src="js/carruselRelacionados.js"></script>
+    <?php include ('includes/buscador.php');?>
+    <?php autocompletado(); ?>
 </body>
 
 </html>
+<?php
+}
+else{
+    header('location:index.php');
+}
+
+?>

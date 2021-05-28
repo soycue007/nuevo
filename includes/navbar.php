@@ -121,8 +121,10 @@
                 </li>
             </ul>
             <form class="d-flex" action="productoBuscado.php" method="post">
+                <div class="autocompletar">
                 <input class="form-control me-2 buscador" type="text" id="buscador" name="buscador" placeholder="¿Que estas buscando?"
                     aria-label="Search" autocomplete="off">
+                </div>
                 <div style="display: inline-flex">
                     <a href="#" style=" text-decoration:none;" class="carritologo"><i class="fas fa-shopping-cart" style="font-size:30px; margin-top:6px"></i></a>
                     <?php

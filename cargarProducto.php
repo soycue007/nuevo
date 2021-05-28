@@ -2,7 +2,7 @@
 include "includes/conexion.php";
 
 $categoria= $_POST['categoria'];
-$nombre= $_POST['nombre'];
+$nombre= strtoupper($_POST['nombre']);
 $descripcion= $_POST['descripcion'];
 $precio= $_POST['precio'];
 $cantidad= $_POST['cantidad'];

@@ -78,5 +78,8 @@ if(isset($_POST['buscador'])){
 
 ?>
     </div>
+    <?php include ('includes/buscador.php');?>
+    <?php autocompletado(); ?>
 </body>
+
 </html>

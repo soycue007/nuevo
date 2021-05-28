@@ -71,15 +71,6 @@ table #tabla thead th, table #tabla tbody td {
 //pasar estilos de imagen a aca y agregar hover*/
 
 
-.buscador{
-	border:3px solid rgb(198, 168, 125);
-	transition: all .1s;
-}
-
-.buscador:hover{
-	width:300px;
-	border-color:rgb(133, 114, 87);
-}
 
 
 .whatsapp{

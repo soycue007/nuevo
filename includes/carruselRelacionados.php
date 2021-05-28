@@ -1,25 +1,29 @@
 <?php
-    function cargarMasVendidos(){
+    function cargarRelacionados($categoria){
         include ('conexion.php');
-        $qy_productos = "SELECT * FROM productos ORDER BY vecesVendido DESC LIMIT 12";
-        $productos = mysqli_query($conexion, $qy_productos);     
+        $contador = 0;
+        $arregloPrecio[]=12;
+        $arregloFoto[]=12;
+        $arregloDescripcion[]=12;
+        $arregloNombre[]=12;
+        $qy_productos = "SELECT * FROM productos WHERE categoria ='$categoria' LIMIT 12";
+        $productos = mysqli_query($conexion, $qy_productos);
+     
         ?>
 <div class="container">
-    <div class="row">
-        <div class="col-1"></div>
-        <div class="col-10">
 
-            <div class="carousel">
-                <div class="carousel__contenedor">
-                    <button aria-label="Anterior" class="carousel__anterior3">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <div class="carousel__lista3">
-                        <?php
-                          while ($aux = mysqli_fetch_array($productos)){                                                                                          
-                    ?>
-                        <div class="carousel__elemento">
-                        <?php
+
+    <div class="carousel">
+        <div class="carousel__contenedor">
+            <button aria-label="Anterior" class="carousel__anterior">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="carousel__lista">
+                <?php 
+                    while ($aux = mysqli_fetch_array($productos)){                       
+                        ?>
+                <div class="carousel__elemento">
+                <?php
                             if($aux['enOferta']>0){
                                 ?>
                                      <h6 style="color: rgb(198, 168, 125)">Descuento:
@@ -32,9 +36,9 @@
                                 <?php
                             }
                         ?>
-                            <a href="productoDetalle.php?nombre=<?php echo $aux['nombre'];?>"><img
-                                    class="carousel__imagen"
-                                    src="data:image/jpg;base64,<?php echo base64_encode($aux['foto']); ?>"></a>
+                    <a href="productoDetalle.php?nombre=<?php echo $aux['nombre']?>"><img
+                            class="carousel__imagen"
+                            src="data:image/jpg;base64,<?php echo base64_encode($aux['foto']); ?>"></a>
                             <?php
                                 if($aux['enOferta']>0){
                                     ?>
@@ -52,21 +56,21 @@
                                 }
                             
                             ?>
-                            
-                        </div>
-                        <?php
-                     } ?>
-                    </div>
-                    <button aria-label="Siguiente" class="carousel__siguiente3">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
                 </div>
-                <br>
-                <div role="tablist" class="carousel__indicadores3"></div>
+                <?php 
+                    }?>
             </div>
+
+            <button aria-label="Siguiente" class="carousel__siguiente">
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
-        <div class="col-1"></div>
+        <br>
+        <div role="tablist" class="carousel__indicadores"></div>
     </div>
+
+
+
 </div>
 
 <?php
